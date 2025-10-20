@@ -1,9 +1,12 @@
 while True:
-    check_list = list(map(int,input().split()))
-    if check_list[0] == 0:
+    sides = list(map(int, input().split()))
+    sides.sort()
+    a, b, c = sides
+
+    if a == 0 and b == 0 and c == 0:
         break
-    check_list.sort()
-    if check_list[2]**2 == (check_list[0]**2)+(check_list[1]**2):
+
+    if a**2 + b**2 == c**2:
         print("right")
     else:
         print("wrong")
