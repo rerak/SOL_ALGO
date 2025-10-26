@@ -1,30 +1,22 @@
-N, M = map(int, input().split())
-K = int(input())
 
-brr = [0, N]
-crr = [0, M]
-drr = []
-err = []
-for _ in range(K):
-    arr = list(map(int, input().split()))
-    if arr[0] == 1:
-        brr.append(arr[1])
+C, R = map(int, input().split())
+r_lst = [0, R]
+c_lst = [0, C]
+N = int(input())
+for _ in range(N):
+    t, n = map(int, input().split())
+    if t == 0:
+        r_lst.append(n)
     else:
-        crr.append(arr[1])
+        c_lst.append(n)
+r_lst.sort()
+c_lst.sort()
 
-brr.sort(reverse=True)
-crr.sort(reverse=True)
+r_max = 0
+for i in range(1, len(r_lst)):
+    r_max = max(r_max, r_lst[i] - r_lst[i-1])
 
-for i in range(len(brr)-1):
-    drr.append(brr[i]-brr[i+1])
-
-for j in range(len(crr)-1):
-    err.append(crr[j]-crr[j+1])
-
-max_cnt = 0
-cnt = 0
-for a in range(len(drr)):
-    for b in range(len(err)):
-        cnt = drr[a]*err[b]
-        max_cnt = max(max_cnt, cnt)
-print(max_cnt)
+c_max = 0
+for i in range(1, len(c_lst)):
+    c_max = max(c_max, c_lst[i] - c_lst[i-1])
+print(r_max * c_max)
