@@ -14,9 +14,9 @@ for i in range(N):
                 visited[i] += 1
                 break
 # print(visited)
-cnt = 0
-max_cnt = 0
-for y in range(N):
-    cnt = visited[y]
-    max_cnt = max(max_cnt, cnt)
-print(visited.index(max_cnt)+1)
+# cnt = 0
+# max_cnt = 0
+# for y in range(N):
+#     cnt = visited[y]
+#     max_cnt = max(max_cnt, cnt)
+print(visited.index(max(visited))+1)
